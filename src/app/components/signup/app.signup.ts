@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class SignUp{
-    
+    types:any = ['Student','Company'];
 }

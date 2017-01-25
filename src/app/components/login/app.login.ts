@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class Login{
+    types:any = ['Student','Company','Admin'];
 
 }

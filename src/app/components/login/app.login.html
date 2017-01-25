@@ -1,20 +1,29 @@
-<md-card class='example-card'>
-    <h2>Login</h2>
-    <form class='example-form'>
-        <div>
-            <md-input-container class="example-full-width">
-            <input md-input placeholder="Username"  >
-            </md-input-container>
-        </div>
-        <div>
-            <md-input-container class="example-full-width">
-            <input md-input placeholder="Password"  >
-            </md-input-container>
-        </div>
-        <div>
-            <button md-button>Sign up</button>
-            <button md-button>Cancel</button>
-        </div>
-        
-    </form>
+<md-card class='example-card '>
+    <div class='head-hh'>
+        <h2 >Login</h2>
+        <form class='example-form'>
+            <div>
+                <md-select placeholder="As">
+                    <md-option *ngFor="let type of types" [value]="type">
+                        {{ type }}
+                    </md-option>
+                </md-select>
+            </div>
+            <div>
+                <md-input-container class="example-full-width">
+                <input md-input placeholder="Username"  >
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="example-full-width">
+                <input md-input placeholder="Password"  >
+                </md-input-container>
+            </div>
+            <div>
+                <button md-button>Login</button>
+                <button md-button>Cancel</button>
+            </div>
+            
+        </form>
+    </div>
 </md-card>
