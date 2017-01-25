@@ -1,0 +1,12 @@
+<h1>
+  {{title}}
+</h1>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.$value}}
+  </li>
+</ul>
+<a routerLink='/login' routerLinkActive='active'>Login</a>
+<a routerLink='/signup' routerLinkActive='active'>Sign up</a>
+
+<router-outlet></router-outlet>
