@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2'; 
+import { MaterialModule } from '@angular/material';
+
 import { AppRouter} from './app-route-module';
 import { AppComponent } from './app.component';
 import { SignUp } from './components/signup/app.signup';
@@ -29,7 +31,8 @@ import { Login } from './components/login/app.login';
     FormsModule,
     HttpModule,
     AppRouter,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

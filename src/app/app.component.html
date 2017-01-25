@@ -1,4 +1,15 @@
-<h1>
+<md-toolbar  color="primary" class="md2 md-toolbar md-primary">
+  <div class="md-toolbar-layout">
+      <md-toolbar-row>
+        <span>Recruitment System </span>
+        <a routerLink='/login' routerLinkActive='active'>Login</a>
+        <a routerLink='/signup' routerLinkActive='active'>Sign up</a>
+        
+      </md-toolbar-row>
+    
+  </div>
+</md-toolbar>
+<!--<h1>
   {{title}}
 </h1>
 <ul>
@@ -6,7 +17,10 @@
     {{item.$value}}
   </li>
 </ul>
+<button md-button routerLink='/signup' routerLinkActive='active'>Sign up</button>
+<button md-button routerLink='/login' routerLinkActive='active'>Login</button>
+
 <a routerLink='/login' routerLinkActive='active'>Login</a>
-<a routerLink='/signup' routerLinkActive='active'>Sign up</a>
+<a routerLink='/signup' routerLinkActive='active'>Sign up</a>-->
 
 <router-outlet></router-outlet>

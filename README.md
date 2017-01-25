@@ -1,4 +1,4 @@
-# StduentRecruitmentSystem
+# Stduent Recruitment System
 
 ## Project installation and start guide
 
