@@ -1,9 +1,9 @@
 <md-card class='example-card '>
     <div class='head-hh'>
         <h2 >Login</h2>
-        <form class='example-form'>
+        <form class='example-form' (ngSubmit)="onLogin()" #signUpForm="ngForm">
             <div>
-                <md-select placeholder="As">
+                <md-select placeholder="As" [(ngModel)]="model.type" name="type"  #type="ngModel">
                     <md-option *ngFor="let type of types" [value]="type">
                         {{ type }}
                     </md-option>
@@ -11,17 +11,17 @@
             </div>
             <div>
                 <md-input-container class="example-full-width">
-                <input md-input placeholder="Username"  >
+                <input md-input type='text' placeholder="email"  [(ngModel)]="model.email" name="email"  #email="ngModel">
                 </md-input-container>
             </div>
             <div>
                 <md-input-container class="example-full-width">
-                <input md-input placeholder="Password"  >
+                <input md-input type='password' placeholder="Password"  [(ngModel)]="model.password" name="password"  #password="ngModel">
                 </md-input-container>
             </div>
             <div>
-                <button md-button>Login</button>
-                <button md-button>Cancel</button>
+                <button md-button type="submit">Login</button>
+                <button md-button (click)='cancel()'>Cancel</button>
             </div>
             
         </form>
