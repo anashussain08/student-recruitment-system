@@ -1,6 +1,6 @@
 export interface ValidUser{
-    email:String;
-    username:String;
-    password:String;
-    type:String;
+    email:string;
+    username:string;
+    password:string;
+    type:string;
 }

@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { user } from './model';
+import {AngularFire, FirebaseListObservable, AuthProviders, AuthMethods} from 'angularfire2';
+
 @Component({
     selector:'login',
     templateUrl:'./app.login.html',

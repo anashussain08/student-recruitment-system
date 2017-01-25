@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidUser } from './user';
+import { Router } from '@angular/router';
+import {AngularFire, FirebaseListObservable, AuthProviders, AuthMethods} from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector:'signup',
@@ -10,11 +13,14 @@ import { ValidUser } from './user';
 export class SignUp implements OnInit{
     types:any = ['Student','Company'];
     model:ValidUser;
-    
-    constructor(){
+    userStream$;
+    constructor(public af: AngularFire, public router:Router){
         
     }
     ngOnInit(){
+        this.clearModel();
+    }
+    clearModel(){
         this.model = {
             email:'',
             username:'',
@@ -23,12 +29,23 @@ export class SignUp implements OnInit{
         }
     }
     onSignUp(){
-        console.log(`${this.model.password} ${this.model.type}`);
-        this.model = {
-            email:'',
-            username:'',
-            password:'',
-            type:''
-        }
+        this.createUserAf()
+        .then(data=>{
+            console.log(`user created! ${data}`);
+            //this.af.auth.login();
+        })
+        .catch(err=>console.log(err));
+        this.clearModel();
+    }
+    createUserAf(){
+        return new Promise((resolve,reject)=>{
+            this.af.auth.createUser(this.model)
+            .then(data=>{
+                console.log('in sample func')
+                resolve(data)})
+            .catch(err=>reject(err))
+        });
+        //this.userStream$.fromPromise(promise);
+        
     }
 }
