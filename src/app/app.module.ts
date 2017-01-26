@@ -17,8 +17,11 @@ import { Dashboard } from './components/dashboard/app.dashboard';
 import { fillDetails } from './components/details/app.details';
 import { CompanyDetails } from './components/details/types/companyDetails/app.company';
 import { StudentDetails } from './components/details/types/studentsDetails/app.student';
+import { StudentDashboard } from './components/dashboard/types/studentDashboard/app.studentDashboard';
+import { CompanyDashboard } from './components/dashboard/types/companyDashboard/app.companyDashboard';
 
 import { AuthService } from './services/auth.service';
+import { DataService } from './services/data.service';
 
   // Initialize Firebase
   export const  firebaseConfig = {
@@ -38,7 +41,9 @@ import { AuthService } from './services/auth.service';
     Dashboard,
     fillDetails,
     CompanyDetails,
-    StudentDetails
+    StudentDetails,
+    StudentDashboard,
+    CompanyDashboard
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { AuthService } from './services/auth.service';
     StoreModule.provideStore(reducer)
   ],
   providers: [
-    AuthService
+    AuthService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

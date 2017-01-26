@@ -11,8 +11,13 @@ import * as firebase from 'firebase';
     styleUrls:['./app.dashboard.css']
 })
 
-export class Dashboard{
+export class Dashboard implements OnInit{
+    user:any;
+    constructor(public authService:AuthService){
 
-
+    }
+    ngOnInit(){
+        this.user = this.authService.User;
+    }
 
 }

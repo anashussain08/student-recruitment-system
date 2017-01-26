@@ -5,7 +5,15 @@
 <div class='head-hh'>
         <h2 >Please fill out the following details</h2>
         <form class='example-form' (ngSubmit)="saveDetails()" #userDetails="ngForm">
-
+          <div>
+          <md-input-container>
+            <input md-input type="text"     disabled [value]="user.username">
+          </md-input-container>
+        </div><div>
+          <md-input-container>
+            <input md-input type="text"     disabled [value]="user.type">
+          </md-input-container>
+        </div>
         <div>
           <md-input-container>
             <input md-input type="text" [(ngModel)]="desc.age" name="age"   #age="ngModel"   placeholder="Enter Age" required>

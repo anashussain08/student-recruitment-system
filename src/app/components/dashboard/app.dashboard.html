@@ -1,1 +1,2 @@
-<h2>Dashboard</h2>
+<student-dashboard *ngIf='user.type == "Student"'></student-dashboard>
+<company-dashboard *ngIf='user.type == "Company"'></company-dashboard>

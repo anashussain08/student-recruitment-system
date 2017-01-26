@@ -36,7 +36,7 @@ export class Login implements OnInit{
         this.authService.login(this.model)
         .then(data=>{
             this.spinner  = false;
-            this.router.navigate(['/fillDetails']);
+            this.router.navigate(['/dashboard']);
             this.clearModel();
         })
         .catch(err=>{
