@@ -10,5 +10,4 @@ export class AppComponent {
   constructor(af: AngularFire) {
     this.items = af.database.list('/students');
   }
-  title = 'app works!';
 }

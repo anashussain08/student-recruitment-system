@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {AngularFire, FirebaseListObservable, AuthProviders, AuthMethods} from 'angularfire2';
+import { AuthService } from './../../services/auth.service';
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase';
+
+@Component({
+    selector:'dashboard',
+    templateUrl:'./app.dashboard.html',
+    styleUrls:['./app.dashboard.css']
+})
+
+export class Dashboard{
+
+
+
+}

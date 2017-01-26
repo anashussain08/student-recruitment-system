@@ -1,5 +1,10 @@
+
+<md-grid-list cols="3">
+  <md-grid-tile></md-grid-tile>
+  <md-grid-tile>
 <md-card class='example-card'>
         <div class='head-hh'>
+            <md-progress-spinner mode="indeterminate" *ngIf='spinner'></md-progress-spinner>
             <h2>Sign Up</h2>
             <form class='example-form' (ngSubmit)="onSignUp()" #signUpForm="ngForm">
                 <div>
@@ -11,7 +16,7 @@
                 </div>
                 <div>
                     <md-input-container class="example-full-width">
-                    <input md-input type='text' placeholder="Username"  [(ngModel)]="model.name" name="username"  #username="ngModel">
+                    <input md-input type='text' placeholder="Username"  [(ngModel)]="model.username" name="username"  #username="ngModel">
                     </md-input-container>
                 </div>
                 <div>
@@ -26,9 +31,12 @@
                 </div>
                 <div>
                     <button md-button type="submit">Sign Up</button>
-                    <button routerLink='/login' md-button>Register</button>
+                    <button md-button (click)='cancel()'>Cancel</button>
                 </div>
                 
             </form>
         </div>
 </md-card>
+</md-grid-tile>
+<md-grid-tile></md-grid-tile>
+</md-grid-list>

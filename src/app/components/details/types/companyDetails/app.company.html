@@ -1,0 +1,41 @@
+<md-grid-list cols="3">
+  <md-grid-tile></md-grid-tile>
+  <md-grid-tile>
+<md-card class='example-card '>
+<div class='head-hh'>
+        <h2 >Please fill out the following details</h2>
+        <form class='example-form' (ngSubmit)="saveDetails()" #userDetails="ngForm">
+
+        <div>
+          <md-input-container>
+            <input md-input type="date" [(ngModel)]="desc.since" name="since"  #since="ngModel"  placeholder="Started at" required>
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.totalEmplyees" name='totalEmployees' #totalEmplyees="ngModel"  placeholder="Enter Total Employees" required>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.industry" name="industry" #industry="ngModel"  placeholder="Enter Marks Obtain" required>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+            <textarea md-input [(ngModel)]="desc.manefesto" name="manefesto" #manefesto="ngModel"  placeholder="Manfesto" required></textarea>
+          </md-input-container>
+        </div>
+
+        
+        <div>
+            <button md-button type="submit">Save</button>
+            <button md-button (click)='cancel()'>Cancel</button>
+        </div>
+    </form>
+</div>
+</md-card>
+</md-grid-tile>
+<md-grid-tile></md-grid-tile>
+</md-grid-list>

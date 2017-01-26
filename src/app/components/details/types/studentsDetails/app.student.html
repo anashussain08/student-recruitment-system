@@ -1,0 +1,41 @@
+<md-grid-list cols="3">
+  <md-grid-tile></md-grid-tile>
+  <md-grid-tile>
+<md-card class='example-card '>
+<div class='head-hh'>
+        <h2 >Please fill out the following details</h2>
+        <form class='example-form' (ngSubmit)="saveDetails()" #userDetails="ngForm">
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.age" name="age"   #age="ngModel"   placeholder="Enter Age" required>
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.collegeName" name='collegeName' #collegeName="ngModel"  placeholder="Enter College Name" required>
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.lastDegree" name='lastDegree' #lastDegree="ngModel"   placeholder="Enter Degree Name" required>
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.marksObtain" name="marksObtain" #marksObtain="ngModel"  placeholder="Enter Marks Obtain" required>
+          </md-input-container>
+        </div>
+        <div>
+            <button md-button type="submit">Save</button>
+            <button md-button (click)='cancel()'>Cancel</button>
+        </div>
+    </form>
+</div>
+</md-card>
+</md-grid-tile>
+<md-grid-tile></md-grid-tile>
+</md-grid-list>

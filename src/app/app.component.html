@@ -2,8 +2,17 @@
   <div class="md-toolbar-layout">
       <md-toolbar-row>
         <span class='nav-title'>Recruitment System </span>
-        <a class='navbar-icons' routerLink='/login' routerLinkActive='active'>Login</a>
-        <a class='navbar-icons' routerLink='/signup' >Sign up</a>
+        <span class="spacer"></span>
+        
+        <div >       
+          <a  class='navbar-icons' routerLink='/login' routerLinkActive='active' *ngIf='true'>Login</a>
+          <a  class='navbar-icons' routerLink='/signup' *ngIf='true'>Sign up</a>
+          
+        </div>
+        <!--<md-tab-group>
+          <md-tab  routerLink='/login' routerLinkActive='active' label="Login"></md-tab>
+          <md-tab routerLink='/signup' label="Sign up"></md-tab>
+        </md-tab-group>-->
         
       </md-toolbar-row>
     
@@ -22,5 +31,4 @@
 
 <a routerLink='/login' routerLinkActive='active'>Login</a>
 <a routerLink='/signup' routerLinkActive='active'>Sign up</a>-->
-
 <router-outlet></router-outlet>
