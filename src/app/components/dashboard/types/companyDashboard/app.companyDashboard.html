@@ -1,0 +1,61 @@
+<md-tab-group>
+  <md-tab label="Post a Job">
+      <md-card class='example-card '>
+<div class='head-hh'>
+                    <md-progress-spinner  mode="indeterminate" *ngIf='spinner'></md-progress-spinner>
+
+        <form class='example-form' (ngSubmit)="postJob()" #userDetails="ngForm">
+         
+        <div>
+          <md-input-container>
+            <input md-input type="number" [(ngModel)]="desc.experience" name="experience"  #experience="ngModel"  placeholder="Required Experience(Years)" required>
+          </md-input-container>
+        </div>
+
+        <div>
+          <md-input-container>
+            <input md-input type="text" [(ngModel)]="desc.salary" name='salary' #totalEmployees="ngModel"  placeholder="Salary(PKR)" required>
+          </md-input-container>
+        </div>
+        
+        <div>
+          <md-input-container>
+            <textarea md-input [(ngModel)]="desc.description" name="description" #description="ngModel"  placeholder="Job Description" required></textarea>
+          </md-input-container>
+        </div>
+
+        
+        <div>
+            <button md-button type="submit">Post</button>
+            <button md-button (click)='cancel()'>Clear</button>
+        </div>
+    </form>
+</div>
+</md-card>
+  </md-tab>
+  <md-tab label="View Students">
+    <ul>
+    <li *ngFor="let item of students">
+      <md-card>
+          <md-card-content>Email: {{item.email}} </md-card-content>
+          <md-card-content>Age: {{item.age}} </md-card-content>
+          <md-card-content>College Name: {{item.collegeName}} </md-card-content>
+          <md-card-content>Last Degree: {{item.lastDegree}} </md-card-content>
+          <md-card-content>Marks Obtainted: {{item.marksObtain}} </md-card-content>
+      </md-card>
+    </li>
+  </ul>
+  </md-tab>
+  <md-tab label="View Posted Jobs">
+    <ul>
+    <li *ngFor="let item of jobs">
+      <md-card>
+          <md-card-content>Description: {{item.description}} </md-card-content>
+          <md-card-content>Experience: {{item.experience}} </md-card-content>
+          <md-card-content>Salary: {{item.salary}} </md-card-content>
+          <md-card-content>Created at: {{item.createdAt | date}} </md-card-content>
+      </md-card>
+    </li>
+  </ul>
+  </md-tab>
+</md-tab-group>

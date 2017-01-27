@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 
 interface companyDetails{
     since?:any,
-    totalEmplyees?:number,
+    totalEmployees?:number,
     industry:string,
     manefesto:string
 }
@@ -31,7 +31,7 @@ export class CompanyDetails implements OnInit{
     clearModel(){
             this.desc = {
             since:null,
-            totalEmplyees:null,
+            totalEmployees:null,
             industry:'',
             manefesto:''
         }

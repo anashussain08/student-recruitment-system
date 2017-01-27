@@ -32,10 +32,10 @@ export class AuthService{
             this.createUser()
             .then(data=>{
                 console.log(`user created! ${data}`);
+                this.firebaseCreateUser(data)
+                .then(firebaseData=>{
                 this.login({email:this.currentUserRegistered.email,password:this.currentUserRegistered.password})
-                .then(loginData=>{
-                    this.firebaseCreateUser(loginData)
-                    .then(firebaseData=>{
+                    .then(loginData=>{
                         resolve(loginData);
                     })
                     .catch(e=>resolve(e));

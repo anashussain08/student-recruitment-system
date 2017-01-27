@@ -11,11 +11,14 @@ import { AppState } from './../model/app.state';
 @Injectable()
 
 export class DataService{
-    
+    _allUsers:any=[];
+    _studentDetails:any = [];
+    _companyDetails:any = [];
     
     constructor(public af: AngularFire, public router:Router, public store:Store<AppState>){
 
     }
+    
     fillDetails(details:any){
         return new Promise((resolve,reject)=>{
             if(details.type == 'Student'){
@@ -57,7 +60,7 @@ export class DataService{
                 manefesto:details.manefesto,
                 createdAt: firebase.database.ServerValue.TIMESTAMP
              };
-            let userNode = this.af.database.object('/details/'+details.$key);
+            let userNode = this.af.database.object('/companyDetails/'+details.$key);
             userNode.set(_details)
             .then(
                 data=>{
@@ -65,5 +68,108 @@ export class DataService{
             })
             .catch(err=>reject(err));
          })
+    }
+    postJob(desc:any){
+        return new Promise((resolve,reject)=>{
+                let _details = {
+                experience: desc.experience,
+                salary: desc.salary,
+                description: desc.description,
+                createdAt: firebase.database.ServerValue.TIMESTAMP
+             };
+            let userNode = this.af.database.object('/jobs/'+desc.$key);
+            userNode.set(_details)
+            .then(
+                data=>{
+                    resolve({});
+            })
+            .catch(err=>reject(err));
+         })
+    }
+    getUsers(){
+        return new Promise((resolve,reject)=>{
+            this.af.database.list('/users')
+            .subscribe(
+                data=>{
+                    this.allUsers = data;
+                    resolve(data);
+                },
+                err=>{
+                    reject(err);
+                },
+                ()=>{
+                    //console.log('');
+                }
+            )
+        })
+    }
+    getStudentDetails(){
+        return new Promise((resolve,reject)=>{
+            this.af.database.list('/details')
+            .subscribe(
+                data=>{
+                    this.studentDetails = data;
+                    resolve(data);
+                },
+                err=>{
+                    reject(err);
+                },
+                ()=>{
+                    //console.log('');
+                }
+            )
+        })
+    }
+    getCompanyDetails(){
+        return new Promise((resolve,reject)=>{
+            this.af.database.list('/companyDetails')
+            .subscribe(
+                data=>{
+                    this.companyDetails = data;
+                    resolve(data);
+                },
+                err=>{
+                    reject(err);
+                },
+                ()=>{
+                    //console.log('');
+                }
+            )
+        })
+    }
+    getJobs(){
+         return new Promise((resolve,reject)=>{
+            this.af.database.list('/jobs')
+            .subscribe(
+                data=>{
+                    //this.companyDetails = data;
+                    resolve(data);
+                },
+                err=>{
+                    reject(err);
+                },
+                ()=>{
+                    //console.log('');
+                }
+            )
+        }) 
+    }
+    set allUsers(users){
+        this._allUsers = users;
+    }
+    get allUsers(){
+        return this._allUsers;
+    }
+    set studentDetails(details){
+        this._studentDetails = details;
+    }
+    get studentDetails(){
+        return this._studentDetails;
+    }
+    set companyDetails(details){
+        this._companyDetails = details;
+    }
+    get companyDetails(){
+        return this._companyDetails;
     }
 }
