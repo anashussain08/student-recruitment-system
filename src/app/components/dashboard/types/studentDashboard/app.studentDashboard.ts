@@ -55,4 +55,11 @@ export class StudentDashboard implements OnInit{
         })
         return data;
     }
+    apply(job){
+        this.dataService.updateJobs(job,this.user.$key)
+        .then(data=>{
+            console.log('applied successfully!');
+        })
+        .catch(e=>e)
+    }
 }

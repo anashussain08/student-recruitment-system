@@ -75,9 +75,10 @@ export class DataService{
                 experience: desc.experience,
                 salary: desc.salary,
                 description: desc.description,
-                createdAt: firebase.database.ServerValue.TIMESTAMP
+                createdAt: firebase.database.ServerValue.TIMESTAMP,
+                appliedBy: null
              };
-            let userNode = this.af.database.object('/jobs/'+desc.$key);
+            let userNode = this.af.database.object('/jobs/'+new Date().getTime());
             userNode.set(_details)
             .then(
                 data=>{
@@ -153,6 +154,17 @@ export class DataService{
                 }
             )
         }) 
+    }
+    updateJobs(job,email){
+        return new Promise((resolve,reject)=>{
+           let jobs =  this.af.database.list('/jobs');
+           jobs.update(job.$key,{appliedBy:job.appliedBy.push(email)})
+           .then(data=>{
+               resolve({})
+           })
+           .catch(err=>{reject(err)})
+            
+        })
     }
     set allUsers(users){
         this._allUsers = users;

@@ -7,7 +7,7 @@
           <md-card-content>Experience: {{item.experience}} </md-card-content>
           <md-card-content>Salary: {{item.salary}} </md-card-content>
           <md-card-content>Created at: {{item.createdAt | date}} </md-card-content>
-          <button md-button>Apply</button>
+          <button md-button (click)='apply(item)'>Apply</button>
       </md-card>
     </li>
   </ul>
