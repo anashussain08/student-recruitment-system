@@ -1,4 +1,28 @@
 <md-tab-group>
-  <md-tab label="All Jobs">All Jobs</md-tab>
-  <md-tab label="View Companies">View Companies</md-tab>
+  <md-tab label="Available Jobs">
+    <ul>
+    <li *ngFor="let item of jobs">
+      <md-card>
+          <md-card-content>Description: {{item.description}} </md-card-content>
+          <md-card-content>Experience: {{item.experience}} </md-card-content>
+          <md-card-content>Salary: {{item.salary}} </md-card-content>
+          <md-card-content>Created at: {{item.createdAt | date}} </md-card-content>
+          <button md-button>Apply</button>
+      </md-card>
+    </li>
+  </ul>
+  </md-tab>
+  <md-tab label="View Companies">
+    <ul>
+    <li *ngFor="let item of companies">
+      <md-card>
+          <md-card-content>Email: {{item.email}} </md-card-content>
+          <md-card-content>Since: {{item.since}} </md-card-content>
+          <md-card-content>Total Employees: {{item.totalEmployees}} </md-card-content>
+          <md-card-content>Industry: {{item.industry}} </md-card-content>
+          <md-card-content>Manifesto: {{item.manefesto}} </md-card-content>
+      </md-card>
+    </li>
+  </ul>
+  </md-tab>
 </md-tab-group>
